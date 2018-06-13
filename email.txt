@@ -1,0 +1,18 @@
+I'd be glad to.
+
+I'd say it all depends on where you want to go from here :), but I thought I would throw some random things to think about:
+
+Deployment:
+Git is often used for copying and deployment, a nice guide lives https://gist.github.com/Nilpo/8ed5e44be00d6cf21f22
+
+In a nutshell with some additional configuration, you prepare the code you want to change, commit it, and then you can use one command push to both github's master and your server in one command.
+You can also use git pre/post commit hooks so that the powershell script runs the configuration items every single time, though you would probably want to commit it to the repo as well (so anyone can test making a change.)
+
+Branching:
+* Oftentimes there's an active development branch, a master branch, and a set of feature branches
+** The master is what users see when they land on the page, and if they just click "download as a zip" on the main page without reading anything, they will get your most recent stable version
+** The development branch is what you are actively considering pushing to master, work from feature and bug branches get pushed to here so that the final state before mutating master occurs
+** the feature branches are any independent changes which solve a particular problem or issue
+
+This makes it a bit easier when you want to do collaboration, you can have the person scope their changes to one item in a feature branch, you review it and verify it meets whatever standards, and then its merged into development. The users who want the dev branch and the developers themselves test on that branch, and when they like it its pushed to master.
+
